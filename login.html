@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Login Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url(../Fitness/images/pngtree-an-old-gym-setting-with-dumbbells-image_2569910.jpg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            background: rgb(104, 83, 83);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .login-container h2 {
+            margin-bottom: 20px;
+        }
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #093413;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .login-container button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <h2 style="color: rgb(161, 191, 215);">Login</h2>
+    <form id="loginForm">
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="submit">Log In</button>
+    </form>
+    <p id="message" style="color: red;"></p>
+</div>
+
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        // Here you can add logic for handling login, e.g., checking against a database
+
+        if (username === 'user' && password === 'pass') {
+            window.location.assign('index.html');
+         
+          
+
+        } else {
+            document.getElementById('message').innerText = 'Invalid username or password.';
+        }
+    });
+</script>
+
+</body>
+</html>

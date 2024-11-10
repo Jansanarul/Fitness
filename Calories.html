@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Calories Burned Calculator</title>
+    <style>
+        
+
+        body {
+            background-image: url(../Fitness/images/download.jpg);
+            font-family: Arial, sans-serif;
+            margin:10px;
+        }
+        label, input, select {
+            display: block;
+            margin: 10px 0;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <h1 style="color: azure;text-align: center;">Calories Burned Calculator</h1>
+
+    <label style="color: aquamarine;" for="weight">Weight (in kg):</label>
+    <input type="number" id="weight" placeholder="Enter your weight" required>
+
+    <label style="color: aquamarine;"  for="activity">Select Activity:</label>
+    <select id="activity">
+        <option value="3.5">Running (6 mph)</option>
+        <option value="3.0">Cycling (12-14 mph)</option>
+        <option value="2.5">Walking (4 mph)</option>
+        <option value="2.0">Yoga</option>
+        <option value="2.8">Swimming</option>
+    </select>
+
+    <label style="color: rgb(128, 255, 212);" for="duration">Duration (in minutes):</label>
+    <input type="number" id="duration" placeholder="Enter duration in minutes" required>
+    
+    <button  onclick="calculateCalories()">Calculate Calories Burned</button>
+    <A href="index.html">
+    <button style="color: rgb(1, 2, 28);">Back Home</button>
+    </A>
+
+
+    <div style="background-color: aliceblue;text-align: center;" class="result" id="result"></div>
+
+    <script>
+        function calculateCalories() {
+            const weight = document.getElementById('weight').value;
+            const activityLevel = document.getElementById('activity').value;
+            const duration = document.getElementById('duration').value;
+
+            if (weight && activityLevel && duration) {
+                const caloriesBurned = (weight * activityLevel * duration) / 60;
+                document.getElementById('result').innerText = `Calories Burned: ${caloriesBurned.toFixed(2)} kcal`;
+            } else {
+                
+                document.getElementById('result').innerText = 'Please fill out all fields.';
+            }
+        }
+    </script>
+
+</body>
+</html>
